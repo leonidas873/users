@@ -8,14 +8,18 @@ import SingleUser from "./SingleUser";
 
 const UsersTable = () => {
   const dispatch = useDispatch();
-  const searchQuery = useSelector(state=>state.searchQuery);
+  const searchQuery = useSelector((state) => state.searchQuery);
   const [sort, setSort] = useState({ type: "", asc: true });
-  const [sortBy, setSortBy] = useState('');
+  const [sortBy, setSortBy] = useState("");
   const users = useSelector((state) => state.users);
-  // const [displayUsers, setDisplayUsers] = useState(users);
+  const [force, setForce] = useState(0);
+//  pagination
 
 
 
+
+const [itemOffset, setItemOffset] = useState(0);
+const [endOffset, setEndOffset] = useState(0)
 
   const handleSortChange = (sortType) => {
     setSort((state) =>
@@ -24,30 +28,56 @@ const UsersTable = () => {
         : { type: sortType, asc: true }
     );
 
-    if(sortType==="user"){
-      setSortBy("firstName")
-    } 
-    else if(sortType==="role"){
-      setSortBy("role")
-    } 
-    else if(sortType==="status"){
-      setSortBy("active")
-    } 
-  
+    if (sortType === "user") {
+      setSortBy("firstName");
+    } else if (sortType === "role") {
+      setSortBy("role");
+    } else if (sortType === "status") {
+      setSortBy("active");
+    }
   };
- 
 
+  // useEffect(()=>{
 
-
-
-
-// useEffect(()=>{
-  let createDisplayUsers = sort.type ? users.sort((a, b) => sort.asc ? (a[sortBy] > b[sortBy] ? 1 : -1) : (a[sortBy] < b[sortBy] ? 1 : -1)) : users;
-  createDisplayUsers = users?.filter(user => (user.firstName + " " + user.lastName).toLowerCase().includes(searchQuery.toLocaleLowerCase()));
+  let createDisplayUsers = sort.type
+    ? (
+      sort.type !== "user" ?
+      users.sort((a, b) =>
+        sort.asc
+          ? String(a[sortBy]).toUpperCase() > String(b[sortBy]).toUpperCase()
+            ? 1
+            : -1
+          : String(a[sortBy]).toUpperCase() < String(b[sortBy]).toUpperCase()
+          ? 1
+          : -1
+      ) :
+      users.sort((a, b) =>
+        sort.asc
+          ? (`${a.firstName}${a.lastName}`).toUpperCase() > (`${b.firstName}${b.lastName}`).toUpperCase()
+            ? 1
+            : -1
+          : (`${a.firstName}${a.lastName}`).toUpperCase() < (`${b.firstName}${b.lastName}`).toUpperCase()
+          ? 1
+          : -1
+      )
+      
+      )
+    : users;
+  createDisplayUsers = users?.filter((user) =>
+    (user.firstName + " " + user.lastName)
+      .toLowerCase()
+      .includes(searchQuery.toLocaleLowerCase())
+  );
   const displayUsers = createDisplayUsers;
-  
+  useEffect(()=>{
+    setItemOffset(0);
+    setEndOffset(5);
+    setForce(0)
+  },[searchQuery])
+
   
 
+  
   return (
     <UsersTableStyled>
       <UsersTableContent>
@@ -55,7 +85,6 @@ const UsersTable = () => {
           <HeadItem
             onClick={() => handleSortChange("user")}
             active={sort.type === "user"}
-            
           >
             <span>USER</span>
             <IoMdArrowDropdown />
@@ -80,9 +109,14 @@ const UsersTable = () => {
         </Thead>
         <Tbody>
           {displayUsers &&
-            displayUsers.map((user) => <SingleUser user={user} key={user.id} />)}
+            displayUsers.slice(itemOffset, endOffset).map((user) => (
+              <SingleUser user={user} key={user.id} />
+            ))}
         </Tbody>
-        <Pagination users={displayUsers}/>
+        {Object.keys(displayUsers).length !== 0 && <Pagination force={force} setForce={(n)=>setForce(n)} searchQuery={searchQuery} items={displayUsers}
+        setItemOffsetP = {(e) => setItemOffset(e)}
+        setEndOffsetP = {(e) => setEndOffset(e)}
+        />}
       </UsersTableContent>
     </UsersTableStyled>
   );
@@ -101,6 +135,7 @@ const UsersTableContent = styled.div`
   display: flex;
   flex-direction: column;
   padding: 50px 20px;
+  padding-bottom:100px;
 `;
 
 const Thead = styled.div`
@@ -125,7 +160,6 @@ const HeadItem = styled.div`
     flex: 2;
     justify-content: flex-start;
   }
-
 `;
 const Tbody = styled.div`
   display: flex;

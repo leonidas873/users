@@ -89,20 +89,31 @@ const PermissionsGroup = ({ active, permissionsGroup, user, groupIndex }) => {
   const users = useSelector((state) => state.users);
 
   const changePermissionsGroup = (bool, id) => {
+
+    const updatedGroup = user.permissions.permissionsGroups.find(
+      (elem) => elem.id === id 
+    ).group.map(elem=>({...elem, active:!bool}));
+
     const updatedPermissionsGroups = user.permissions.permissionsGroups.map(
-      (elem) => (elem.id === id ? { ...elem, active: !bool } : elem)
+      (elem) => (elem.id === id ? { ...elem, group:updatedGroup, active: !bool } : elem)
     );
+
+
+
+
     const updatedUser = {
       ...user,
       permissions: {
         ...user.permissions,
         permissionsGroups: updatedPermissionsGroups,
+
       },
     };
     const updatedUsers = users.map((elem) =>
       elem.id === user.id ? updatedUser : elem
     );
     dispatch(setUsers(updatedUsers));
+   
   };
 
   const changeSinglePermission = (bool, id, index, permissionsGroup) => {
@@ -117,13 +128,14 @@ const PermissionsGroup = ({ active, permissionsGroup, user, groupIndex }) => {
         permissions: {
           ...user.permissions,
           permissionsGroups: updatedPermissionsGroups,
+
         },
       };
       const updatedUsers = users.map((elem) =>
         elem.id === user.id ? updatedUser : elem
       );
       dispatch(setUsers(updatedUsers));
-
+        
   };
 
   return (

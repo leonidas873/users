@@ -414,9 +414,200 @@
       }
     },
     {
-      "id": "62482f58affe62ddd13fe1c7",
+      "id": "62482f58affe62asdawqwerddd13fe1c7",
       "email": "miles@gmail.nra",
       "firstName": "Miles",
+      "lastName": "Rosario",
+      "role": "admin",
+      "active": false,
+            "permissions":{
+        "superAdmin":false,
+        "permissionsGroups":[
+          { "id":0,
+            "name":"permissionName1",
+            "active":true,
+            "group":[
+              {"id":0, "name":"permission1", "active":false},
+              {"id":1, "name":"permission11", "active":true},
+              {"id":2, "name":"permission1323", "active":false},
+              {"id":3, "name":"permission12", "active":true},
+              {"id":4, "name":"permission1122", "active":true}
+            ]
+          },
+          {"id":1,
+            "name":"permissionName2",
+            "active":true,
+            "group":[
+              {"id":0, "name":"permission1", "active":false},
+              {"id":1, "name":"permission2", "active":true},
+              {"id":2, "name":"permission3", "active":false},
+              {"id":3, "name":"permission4", "active":true},
+              {"id":4, "name":"permission5", "active":true}
+            ]
+          },
+          {"id":2,
+            "name":"permissionName3",
+            "active":true,
+            "group":[
+              {"id":0, "name":"permission1", "active":false},
+              {"id":1, "name":"permission12", "active":true},
+              {"id":2, "name":"permission13", "active":false},
+              {"id":3, "name":"permission14", "active":true},
+              {"id":4, "name":"permission15", "active":true}
+            ]
+          }
+        ]
+      }
+    },
+
+    {
+      "id": "62482f58affe62gdfgsdfsaasddd13fe1c7",
+      "email": "miles@gmail.nra",
+      "firstName": "france",
+      "lastName": "Rosario",
+      "role": "admin",
+      "active": false,
+            "permissions":{
+        "superAdmin":false,
+        "permissionsGroups":[
+          { "id":0,
+            "name":"permissionName1",
+            "active":true,
+            "group":[
+              {"id":0, "name":"permission1", "active":false},
+              {"id":1, "name":"permission11", "active":true},
+              {"id":2, "name":"permission1323", "active":false},
+              {"id":3, "name":"permission12", "active":true},
+              {"id":4, "name":"permission1122", "active":true}
+            ]
+          },
+          {"id":1,
+            "name":"permissionName2",
+            "active":true,
+            "group":[
+              {"id":0, "name":"permission1", "active":false},
+              {"id":1, "name":"permission2", "active":true},
+              {"id":2, "name":"permission3", "active":false},
+              {"id":3, "name":"permission4", "active":true},
+              {"id":4, "name":"permission5", "active":true}
+            ]
+          },
+          {"id":2,
+            "name":"permissionName3",
+            "active":true,
+            "group":[
+              {"id":0, "name":"permission1", "active":false},
+              {"id":1, "name":"permission12", "active":true},
+              {"id":2, "name":"permission13", "active":false},
+              {"id":3, "name":"permission14", "active":true},
+              {"id":4, "name":"permission15", "active":true}
+            ]
+          }
+        ]
+      }
+    }
+
+    ,
+    {
+      "id": "62482f58af12341fe62ddd13fe1c7",
+      "email": "miles@gmail.nra",
+      "firstName": "jon",
+      "lastName": "Rosario",
+      "role": "admin",
+      "active": false,
+            "permissions":{
+        "superAdmin":false,
+        "permissionsGroups":[
+          { "id":0,
+            "name":"permissionName1",
+            "active":true,
+            "group":[
+              {"id":0, "name":"permission1", "active":false},
+              {"id":1, "name":"permission11", "active":true},
+              {"id":2, "name":"permission1323", "active":false},
+              {"id":3, "name":"permission12", "active":true},
+              {"id":4, "name":"permission1122", "active":true}
+            ]
+          },
+          {"id":1,
+            "name":"permissionName2",
+            "active":true,
+            "group":[
+              {"id":0, "name":"permission1", "active":false},
+              {"id":1, "name":"permission2", "active":true},
+              {"id":2, "name":"permission3", "active":false},
+              {"id":3, "name":"permission4", "active":true},
+              {"id":4, "name":"permission5", "active":true}
+            ]
+          },
+          {"id":2,
+            "name":"permissionName3",
+            "active":true,
+            "group":[
+              {"id":0, "name":"permission1", "active":false},
+              {"id":1, "name":"permission12", "active":true},
+              {"id":2, "name":"permission13", "active":false},
+              {"id":3, "name":"permission14", "active":true},
+              {"id":4, "name":"permission15", "active":true}
+            ]
+          }
+        ]
+      }
+    }
+
+    ,
+    {
+      "id": "62482f58ewqaffe62ddd13fe1c7",
+      "email": "miles@gmail.nra",
+      "firstName": "alex",
+      "lastName": "Rosario",
+      "role": "admin",
+      "active": false,
+            "permissions":{
+        "superAdmin":false,
+        "permissionsGroups":[
+          { "id":0,
+            "name":"permissionName1",
+            "active":true,
+            "group":[
+              {"id":0, "name":"permission1", "active":false},
+              {"id":1, "name":"permission11", "active":true},
+              {"id":2, "name":"permission1323", "active":false},
+              {"id":3, "name":"permission12", "active":true},
+              {"id":4, "name":"permission1122", "active":true}
+            ]
+          },
+          {"id":1,
+            "name":"permissionName2",
+            "active":true,
+            "group":[
+              {"id":0, "name":"permission1", "active":false},
+              {"id":1, "name":"permission2", "active":true},
+              {"id":2, "name":"permission3", "active":false},
+              {"id":3, "name":"permission4", "active":true},
+              {"id":4, "name":"permission5", "active":true}
+            ]
+          },
+          {"id":2,
+            "name":"permissionName3",
+            "active":true,
+            "group":[
+              {"id":0, "name":"permission1", "active":false},
+              {"id":1, "name":"permission12", "active":true},
+              {"id":2, "name":"permission13", "active":false},
+              {"id":3, "name":"permission14", "active":true},
+              {"id":4, "name":"permission15", "active":true}
+            ]
+          }
+        ]
+      }
+    }
+
+    ,
+    {
+      "id": "62482f5asd8affe62ddd13fe1c7",
+      "email": "miles@gmail.nra",
+      "firstName": "bruno",
       "lastName": "Rosario",
       "role": "admin",
       "active": false,

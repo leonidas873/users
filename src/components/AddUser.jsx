@@ -73,7 +73,7 @@ const AddUser = ({closeModal, notify}) => {
   const handleSubmit = (values) => {
     const updated = [...users];
     const id = uniqid();
-    updated.push({ id:id , ...values, active:true, permissions:permissionsData })
+    updated.unshift({ id:id , ...values, active:true, permissions:permissionsData })
     dispatch(addUser(updated));
     notify()
     closeModal()
